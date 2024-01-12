@@ -7,20 +7,21 @@ import { PostProps } from "../../components/Post"
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   const post = {
     id: "1",
-    title: "Prisma is the perfect ORM for Next.js",
-    content: "[Prisma](https://github.com/prisma/prisma) and Next.js go _great_ together!",
+    title: "Hello World",
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
     published: false,
     author: {
-      name: "Nikolas Burk",
-      email: "burk@prisma.io",
+      name: "Justin Ung",
+      email: "ungjus@gmail.com",
     },
+    created_at: "2024-01-10"
   }
   return {
     props: post,
   }
 }
 
-const Post: React.FC<PostProps> = (props) => {
+const Post = (props: PostProps) => {
   let title = props.title
   if (!props.published) {
     title = `${title} (Draft)`
@@ -29,15 +30,11 @@ const Post: React.FC<PostProps> = (props) => {
   return (
     <Layout>
       <div>
-        <h2>{title}</h2>
-        <p>By {props?.author?.name || "Unknown author"}</p>
+        <h2 className="font-bold text-lg pt-8">{title}</h2>
+        <p className="py-4">By {props?.author?.name || "Unknown author"} {props.created_at}</p>
         <ReactMarkdown children={props.content} />
       </div>
-      <style jsx>{`
-        .page {
-          background: white;
-          padding: 2rem;
-        }
+      {/* <style jsx>{`
 
         .actions {
           margin-top: 2rem;
@@ -53,7 +50,7 @@ const Post: React.FC<PostProps> = (props) => {
         button + button {
           margin-left: 1rem;
         }
-      `}</style>
+      `}</style> */}
     </Layout>
   )
 }

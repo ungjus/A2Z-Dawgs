@@ -11,21 +11,17 @@ export type PostProps = {
   } | null;
   content: string;
   published: boolean;
+  created_at: string;
 };
 
-const Post: React.FC<{ post: PostProps }> = ({ post }) => {
+const Post = ({ post }: { post: PostProps }): JSX.Element => {
   const authorName = post.author ? post.author.name : "Unknown author";
+  const letter = String.fromCharCode(Number(post.title))
   return (
-    <div onClick={() => Router.push("/p/[id]", `/p/${post.id}`)}>
-      <h2>{post.title}</h2>
-      <small>By {authorName}</small>
+    <div className="text-inherit p-8"onClick={() => Router.push("/p/[title]", `/p/${post.title}`)}>
+      <h2 className="font-bold text-lg ">{post.title}</h2>
+      <small className="py-96">By {authorName} {post.created_at}</small>
       <ReactMarkdown children={post.content} />
-      <style jsx>{`
-        div {
-          color: inherit;
-          padding: 2rem;
-        }
-      `}</style>
     </div>
   );
 };
