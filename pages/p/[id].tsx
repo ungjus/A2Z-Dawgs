@@ -28,30 +28,28 @@ const Post = (props: PostProps) => {
   }
 
   return (
-    <Layout>
       <div>
         <h2 className="font-bold text-lg pt-8">{title}</h2>
         <p className="py-4">By {props?.author?.name || "Unknown author"} {props.created_at}</p>
         <ReactMarkdown children={props.content} />
       </div>
-      {/* <style jsx>{`
+      // {/* <style jsx>{`
 
-        .actions {
-          margin-top: 2rem;
-        }
+      //   .actions {
+      //     margin-top: 2rem;
+      //   }
 
-        button {
-          background: #ececec;
-          border: 0;
-          border-radius: 0.125rem;
-          padding: 1rem 2rem;
-        }
+      //   button {
+      //     background: #ececec;
+      //     border: 0;
+      //     border-radius: 0.125rem;
+      //     padding: 1rem 2rem;
+      //   }
 
-        button + button {
-          margin-left: 1rem;
-        }
-      `}</style> */}
-    </Layout>
+      //   button + button {
+      //     margin-left: 1rem;
+      //   }
+      // `}</style> */}
   )
 }
 

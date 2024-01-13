@@ -23,13 +23,13 @@ const Navbar = (): JSX.Element => {
 
             {/* Left Side: Logo and Blog Name */}
             <Link href='/'>
-                <a className='inline-flex items-center p-2 mr-4 '>
+                <div className='inline-flex items-center p-2 mr-4 '>
                     <img src="https://static.vecteezy.com/system/resources/thumbnails/002/082/093/small/cute-shiba-inu-dog-paws-up-over-wall-illustration-vector.jpg" className="h-10" />
 
                     <span className='text-xl text-black font-bold uppercase tracking-wide pl-1'>
                         A-Z Dawgs
                     </span>
-                </a>
+                </div>
             </Link>
 
             {/* Right Side: Hamburger Menu Button */}
@@ -56,8 +56,7 @@ const Navbar = (): JSX.Element => {
 
             {/* Nav Links and Log in Button*/}
             <div
-                className={`${active ? '' : 'hidden'
-                    }   w-full lg:inline-flex lg:flex-grow lg:w-auto`}
+                className={`w-full lg:inline-flex lg:flex-grow lg:w-auto ${active ? 'dropdown-active' : 'hidden'} `}
             >
                 <div className="lg:inline-flex lg:flex-row lg:w-full w-full lg:items-center items-start  flex flex-col lg:h-auto">
                     {/* Center: Navigation Links */}
@@ -66,7 +65,7 @@ const Navbar = (): JSX.Element => {
                             .filter((link) => link.href !== '/')
                             .map((link) => (
                                 <Link key={link.title} href={link.href}>
-                                    <li className="lg:inline-flex px-3 py-2 rounded text-black items-center flex justify-center cursor-pointer" onClick={() => handleClick()}>{link.title}</li>
+                                    <li className="lg:inline-flex px-3 py-2 rounded text-black items-center flex justify-center cursor-pointer " onClick={() => handleClick()}>{link.title}</li>
                                 </Link>
                             ))}
                     </ul>

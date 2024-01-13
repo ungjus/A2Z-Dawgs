@@ -18,3 +18,11 @@ input, textarea {
 button {
     @apply cursor-pointer;
 }
+
+.dropdown-active {
+    transition-property: height, opacity;
+    transition-duration: 500ms;
+    transition-timing-function: ease-in-out;
+    height: auto;
+    opacity: 1;
+}

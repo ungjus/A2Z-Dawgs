@@ -26,6 +26,7 @@ type Props = {
 }
 
 const Blog = (props: Props): JSX.Element => {
+
   return (
     <div className="page">
       <h1 className="text-xl font-bold pt-8">Latest</h1>
