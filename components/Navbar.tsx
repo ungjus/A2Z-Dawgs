@@ -24,7 +24,7 @@ const Navbar = (): JSX.Element => {
             {/* Left Side: Logo and Blog Name */}
             <Link href='/'>
                 <a className='inline-flex items-center p-2 mr-4 '>
-                    <img src="https://static.vecteezy.com/system/resources/thumbnails/002/082/093/small/cute-shiba-inu-dog-paws-up-over-wall-illustration-vector.jpg" className="h-8" />
+                    <img src="https://static.vecteezy.com/system/resources/thumbnails/002/082/093/small/cute-shiba-inu-dog-paws-up-over-wall-illustration-vector.jpg" className="h-10" />
 
                     <span className='text-xl text-black font-bold uppercase tracking-wide pl-1'>
                         A-Z Dawgs
