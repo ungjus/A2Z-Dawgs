@@ -6,10 +6,10 @@ type Props = {
 };
 
 const Layout = (props: { children: ReactNode }) => (
-  <html>
+  <div>
     <Navbar/>
     <div className="px-8 py-0">{props.children}</div>
-  </html>
+  </div>
 );
 
 export default Layout;
