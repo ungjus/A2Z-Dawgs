@@ -1,5 +1,6 @@
 import React from 'react';
 import { useUser } from "@auth0/nextjs-auth0/client"
+import Link from 'next/link';
 
 
 interface LoginProps {
@@ -16,19 +17,30 @@ const Login = ({ isMobile = false, active = false}: LoginProps) => {
   if (error) return <div>{error.message}</div>
 
   const buttonStyle = isMobile
-    ? `lg:hidden lg:w-full w-full justify-center p-2 bg-blue-600 rounded text-white hover:bg-blue-500 transition hover:-translate-y-1 hover:scale-110 ease-in-out duration-300 ${active ? 'block' : 'hidden'}`
-    : `lg:inline-flex hidden ml-4 py-2 px-4 bg-blue-600 rounded text-white hover:bg-blue-500 hover:-translate-y-1 hover:scale-110 transition ease-in-out duration-300 ${active ? 'hidden' : ''}`;
+    ? `lg:hidden lg:w-full w-full justify-center p-2 bg-blue-600 rounded text-white hover:bg-blue-500 ${active ? 'block' : 'hidden'}`
+    : `lg:inline-flex hidden ml-4 py-2 px-4 bg-blue-600 rounded text-white hover:bg-blue-500 ${active ? 'hidden' : ''}`;
 
   const loggedInStyle = isMobile
-    ? `lg:hidden sm:inline-flex lg:w-full w-full justify-center p-2 text-black items-center flex hover:-translate-y-1 hover:scale-110 transition ease-in-out duration-300 ${active ? 'block' : 'hidden'}`
-    : `lg:inline-flex hidden ml-4 py-2 px-4 text-black items-center transition hover:-translate-y-1 hover:scale-110 ease-in-out duration-300 ${active ? 'hidden' : ''}`;
+    ? `lg:hidden sm:inline-flex lg:w-full w-full justify-center p-2 text-black items-center ${active ? 'block' : 'hidden'}`
+    : `lg:inline-flex hidden ml-4 py-2 px-4 text-black items-center ${active ? 'hidden' : ''}`;
 
   if (user) {
     return (
       <div className={loggedInStyle}>
-        <p className="text-nowrap ">Welcome {user.name}</p>
+        <Link href="/profile">
+          <div className="inline-flex items-center p-2 mr-4">
+            {user.picture ?
+                <img src={user.picture} className="h-10 rounded-full" />: 
+                <img src="https://static.vecteezy.com/system/resources/thumbnails/002/082/093/small/cute-shiba-inu-dog-paws-up-over-wall-illustration-vector.jpg" className="h-10 rounded-full" />
+
+            }
+            <p className="text-nowrap pl-2">{user.name}</p>
+          </div>
+          
+        </Link>
         
-        <button className="py-2 px-4 bg-blue-600 rounded text-white hover:bg-blue-500 ml-8">
+        
+        <button className="py-2 px-4 bg-blue-600 rounded text-white hover:bg-blue-500 ml-8 transition hover:-translate-y-1 hover:scale-110 ease-in-out duration-300">
           <a href="/api/auth/logout">Logout</a>
         </button>
 

@@ -9,6 +9,7 @@ const App = ({ Component, pageProps }: AppProps) => {
     <UserProvider>
       <Layout>
           <Head>
+            <title>A-Z Dawgs</title>
             <link rel="icon" href="/icon.ico" sizes="any" />
             <link
               rel="icon"

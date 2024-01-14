@@ -19,7 +19,7 @@ const Navbar = (): JSX.Element => {
     };
 
     return (
-        <nav className='flex items-center flex-wrap bg-white p-3 '>
+        <nav className='flex items-center flex-wrap bg-white p-3'>
 
             {/* Left Side: Logo and Blog Name */}
             <Link href='/'>
@@ -56,7 +56,7 @@ const Navbar = (): JSX.Element => {
 
             {/* Nav Links and Log in Button*/}
             <div
-                className={`w-full lg:inline-flex lg:flex-grow lg:w-auto ${active ? 'dropdown-active' : 'hidden'} `}
+                className={`w-full lg:inline-flex lg:flex-grow lg:w-auto ${active ? '' : 'hidden'} `}
             >
                 <div className="lg:inline-flex lg:flex-row lg:w-full w-full lg:items-center items-start  flex flex-col lg:h-auto">
                     {/* Center: Navigation Links */}
