@@ -6,7 +6,8 @@ const navLinks = [
     { href: '/', title: 'Home' },
     { href: '/blog', title: 'Blog' },
     { href: '/tags', title: 'Tags' },
-    { href: '/tbd', title: 'TBD' },
+    { href: '/Rules', title: 'Food Map'},
+    { href: '/Rules', title: 'A-Z Rules'},
     { href: '/about', title: 'About Us' },
 ]
 
@@ -19,7 +20,7 @@ const Navbar = (): JSX.Element => {
     };
 
     return (
-        <nav className='flex items-center flex-wrap bg-white p-3'>
+        <nav className='flex items-center flex-wrap bg-white p-3 border-b-[1px]'>
 
             {/* Left Side: Logo and Blog Name */}
             <Link href='/'>

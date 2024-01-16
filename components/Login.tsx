@@ -17,11 +17,11 @@ const Login = ({ isMobile = false, active = false}: LoginProps) => {
   if (error) return <div>{error.message}</div>
 
   const buttonStyle = isMobile
-    ? `lg:hidden lg:w-full w-full justify-center p-2 bg-blue-600 rounded text-white hover:bg-blue-500 ${active ? 'block' : 'hidden'}`
+    ? `lg:hidden lg:w-full w-full justify-center p-2 bg-blue-600 rounded text-white hover:bg-blue-500 border-t-[1px] ${active ? 'block' : 'hidden'}`
     : `lg:inline-flex hidden ml-4 py-2 px-4 bg-blue-600 rounded text-white hover:bg-blue-500 ${active ? 'hidden' : ''}`;
 
   const loggedInStyle = isMobile
-    ? `lg:hidden sm:inline-flex lg:w-full w-full justify-center p-2 text-black items-center ${active ? 'block' : 'hidden'}`
+    ? `lg:hidden lg:inline-flex lg:w-min w-min flex justify-center p-2 text-black items-center m-auto border-t-[1px] ${active ? 'block' : 'hidden'}`
     : `lg:inline-flex hidden ml-4 py-2 px-4 text-black items-center ${active ? 'hidden' : ''}`;
 
   if (user) {

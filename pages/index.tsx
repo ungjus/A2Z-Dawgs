@@ -28,11 +28,11 @@ type Props = {
 const Blog = (props: Props): JSX.Element => {
 
   return (
-    <div className="page">
+    <div >
       <h1 className="text-xl font-bold pt-8">Latest</h1>
       <main>
         {props.feed.map((post) => (
-          <div key={post.id} className="bg-white mt-8 hover:shadow">
+          <div key={post.id} className="bg-white mt-8 shadow-sm hover:shadow border-[1px] rounded">
             <Post post={post} />
           </div>
         ))}

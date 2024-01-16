@@ -7,7 +7,9 @@ module.exports = {
   theme: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
   corePlugins: { // remove if you want all tags to be non defeult (h1 will be h1 instead of p size)
     preflight: true,
   }

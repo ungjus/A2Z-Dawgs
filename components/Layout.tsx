@@ -9,7 +9,7 @@ type Props = {
 const Layout = (props: { children: ReactNode }) => (
   <div>
       <Navbar/>
-      <div className="px-8 py-0">{props.children}</div>
+      <div className="px-8 py-2">{props.children}</div>
   </div>
 );
 
