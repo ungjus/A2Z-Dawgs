@@ -9,7 +9,9 @@ const Profile = ({ user, error, isLoading }): JSX.Element => {
     if (isLoading) return <div>Loading...</div>;
     if (error) return <div>{error.message}</div>;
     
-    const role = user["http://a2zdawgs.com/roles"]
+    const role = user["http://a2zdawgs.com/roles"] + ""
+
+    const isAdmin = (role === "Admin")
     
 
     return (
@@ -26,10 +28,13 @@ const Profile = ({ user, error, isLoading }): JSX.Element => {
                 </ReactMarkdown>
 
                 <p>Role: {role}</p>
+                {isAdmin &&
+                    <Link href="/draft">
+                        <button className="bg-blue-600 rounded text-white hover:bg-blue-500 p-2">Create</button>
+                    </Link>
 
-                <Link href="/draft">
-                    <button className="bg-blue-600 rounded text-white hover:bg-blue-500 p-2">Create</button>
-                </Link>
+                }
+                
             </main>
         </div>
         

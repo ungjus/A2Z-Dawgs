@@ -4,10 +4,9 @@ import Login from './Login'
 
 const navLinks = [
     { href: '/', title: 'Home' },
-    { href: '/blog', title: 'Blog' },
-    { href: '/tags', title: 'Tags' },
-    { href: '/Rules', title: 'Food Map'},
-    { href: '/Rules', title: 'A-Z Rules'},
+    { href: '/explore', title: 'Explore' },
+    { href: '/map', title: 'Food Map'},
+    { href: '/rules', title: 'A-Z Rules'},
     { href: '/about', title: 'About Us' },
 ]
 
@@ -20,39 +19,57 @@ const Navbar = (): JSX.Element => {
     };
 
     return (
-        <nav className='flex items-center flex-wrap bg-white p-3 border-b-[1px]'>
+        <nav className='flex items-center flex-wrap bg-gray-800 p-3 border-b-[1px] shadow-sm'>
 
             {/* Left Side: Logo and Blog Name */}
             <Link href='/'>
                 <div className='inline-flex items-center p-2 mr-4 '>
                     <img src="https://static.vecteezy.com/system/resources/thumbnails/002/082/093/small/cute-shiba-inu-dog-paws-up-over-wall-illustration-vector.jpg" className="h-10" />
 
-                    <span className='text-xl text-black font-bold uppercase tracking-wide pl-1'>
+                    <span className='text-xl text-white font-bold uppercase tracking-wide pl-1'>
                         A-Z Dawgs
                     </span>
                 </div>
             </Link>
 
-            {/* Right Side: Hamburger Menu Button */}
-            <button
-                className='inline-flex p-3 hover:bg-gray-200 rounded lg:hidden text-black ml-auto outline-none'
+             {/* Right Side: Hamburger/Cross Menu Button */}
+             <button
+                className='inline-flex p-3 hover:scale-110 ease-in-out duration-300 rounded lg:hidden text-white ml-auto outline-none'
                 onClick={handleClick}
             >
-
-                <svg
-                    className='w-6 h-6'
-                    fill='none'
-                    stroke='currentColor'
-                    viewBox='0 0 24 24'
-                    xmlns='http://www.w3.org/2000/svg'
-                >
-                    <path
-                        strokeLinecap='round'
-                        strokeLinejoin='round'
-                        strokeWidth={2}
-                        d='M4 6h16M4 12h16M4 18h16'
-                    />
-                </svg>
+                {active ? (
+                    // Cross icon for active state
+                    <svg
+                        className='w-6 h-6'
+                        fill='none'
+                        stroke='currentColor'
+                        viewBox='0 0 24 24'
+                        xmlns='http://www.w3.org/2000/svg'
+                    >
+                        <path
+                            strokeLinecap='round'
+                            strokeLinejoin='round'
+                            strokeWidth={2}
+                            d='M6 18L18 6M6 6l12 12'
+                        />
+                    </svg>
+                ) : (
+                    // Hamburger icon for inactive state
+                    <svg
+                        className='w-6 h-6'
+                        fill='none'
+                        stroke='currentColor'
+                        viewBox='0 0 24 24'
+                        xmlns='http://www.w3.org/2000/svg'
+                    >
+                        <path
+                            strokeLinecap='round'
+                            strokeLinejoin='round'
+                            strokeWidth={2}
+                            d='M4 6h16M4 12h16M4 18h16'
+                        />
+                    </svg>
+                )}
             </button>
 
             {/* Nav Links and Log in Button*/}
@@ -66,7 +83,7 @@ const Navbar = (): JSX.Element => {
                             .filter((link) => link.href !== '/')
                             .map((link) => (
                                 <Link key={link.title} href={link.href}>
-                                    <li className="lg:inline-flex px-3 py-2 rounded text-black items-center flex justify-center cursor-pointer " onClick={() => handleClick()}>{link.title}</li>
+                                    <li className="lg:inline-flex px-3 py-2 rounded text-white items-center flex justify-center cursor-pointer " onClick={() => handleClick()}>{link.title}</li>
                                 </Link>
                             ))}
                     </ul>

@@ -17,8 +17,8 @@ const Login = ({ isMobile = false, active = false}: LoginProps) => {
   if (error) return <div>{error.message}</div>
 
   const buttonStyle = isMobile
-    ? `lg:hidden lg:w-full w-full justify-center p-2 bg-blue-600 rounded text-white hover:bg-blue-500 border-t-[1px] ${active ? 'block' : 'hidden'}`
-    : `lg:inline-flex hidden ml-4 py-2 px-4 bg-blue-600 rounded text-white hover:bg-blue-500 ${active ? 'hidden' : ''}`;
+    ? `lg:hidden lg:w-full w-full justify-center p-2 rounded-md bg-white text-gray-800 hover:bg-gray-200 border-t-[1px] ${active ? 'block' : 'hidden'}`
+    : `lg:inline-flex hidden ml-4 py-2 px-4 rounded-md bg-white text-gray-800 hover:bg-gray-200 ${active ? 'hidden' : ''}`;
 
   const loggedInStyle = isMobile
     ? `lg:hidden lg:inline-flex lg:w-min w-min flex justify-center p-2 text-black items-center m-auto border-t-[1px] ${active ? 'block' : 'hidden'}`
@@ -34,13 +34,13 @@ const Login = ({ isMobile = false, active = false}: LoginProps) => {
                 <img src="https://static.vecteezy.com/system/resources/thumbnails/002/082/093/small/cute-shiba-inu-dog-paws-up-over-wall-illustration-vector.jpg" className="h-10 rounded-full" />
 
             }
-            <p className="text-nowrap pl-2">{user.name}</p>
+            <p className="text-nowrap pl-2 text-white">{user.name}</p>
           </div>
           
         </Link>
         
         
-        <button className="py-2 px-4 bg-blue-600 rounded text-white hover:bg-blue-500 ml-8 transition hover:-translate-y-1 hover:scale-110 ease-in-out duration-300">
+        <button className="py-2 px-4 rounded-md bg-white text-gray-800 hover:bg-gray-200 ml-8 transition hover:scale-105 ease-in-out duration-300">
           <a href="/api/auth/logout">Logout</a>
         </button>
 
