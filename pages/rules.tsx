@@ -12,14 +12,14 @@ We set some ground rules when we started doing challenge.
     - For example, The Cheesecake Factory would could as T not C.
 2. Must go in order.
     - For example, after doing C, you have to go to D and cant skip to F.
-3. Only dinner applies. 
+3. Try new places!
+    - You might find a hidden gem! 
+4. Only dinner applies. 
     - Getting lunch, drinks, and dessert might make this challenge finish too quickly.
-4. Take pictures of the food!
+5. Take pictures of the food!
     - We wanna see what you ate :D
 
 Try for yourself!
-
-<p align="center"> ![Ramen Bear](ramen.png) </p>
 
 `
 
@@ -31,10 +31,10 @@ Try for yourself!
             </article>
             <Image
                 src="/ramen.png"
-                width={300}
-                height={300}
+                width="0"
+                height="0"
                 alt="Ramen bear"
-                className="m-auto"
+                className="w-auto h-auto m-auto"
                 />
         </div>
 
