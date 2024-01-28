@@ -1,6 +1,7 @@
 'use client'
 import React, { useEffect, useState } from 'react';
 import InfoMarker from '../components/InfoMarker';
+import Switch from 'react-switch'
 React.useLayoutEffect = React.useEffect 
 
 import {APIProvider, Map, useApiIsLoaded} from '@vis.gl/react-google-maps';
@@ -22,7 +23,7 @@ const MapPage = (): JSX.Element => {
         { id: "A", position: { lat: 47.617140, lng: -122.202020 }, name: "Auntie Anne's" },
         { id: "B", position: { lat: 47.624699, lng: -122.201714 }, name: "Boiling Point" },
         { id: "C", position: { lat: 47.536910, lng: -122.036020 }, name: "Coconut Thai" },
-        // { id: "D", position: { lat: 47.637107, lng: -121.832770 }, name: "Test" },
+        { id: "D", position: { lat: 47.637107, lng: -121.832770 }, name: "Test" },
     ];
 
     const mapCenter = () => { 
@@ -39,8 +40,20 @@ const MapPage = (): JSX.Element => {
                 {isMounted ?(
                     <div>
                         <div className="mb-4">
-                        <label className="mr-2">Show Moving Marker:</label>
-                        <input type="checkbox" checked={showMovingMarker} onChange={handleToggleSwitch} />
+                            <label className='flex flex-row'>
+                                <span className='text-center mr-2'>Show Moving Marker: </span>
+                                <Switch 
+                                    onChange={handleToggleSwitch} 
+                                    checked={showMovingMarker}
+                                    onColor="#86d3ff" 
+                                    onHandleColor="#2693e6" 
+                                    uncheckedIcon={false}
+                                    checkedIcon={false}
+                                    boxShadow="0px 1px 5px rgba(0, 0, 0, 0.6)"
+                                    activeBoxShadow="0px 0px 1px 10px rgba(0, 0, 0, 0.2)"
+                                    height={20}
+                                    width={48}/>
+                            </label>
                         </div>
                         <Map
                             mapId={process.env.NEXT_PUBLIC_GOOGLE_MAPS_ID}

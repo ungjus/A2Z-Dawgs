@@ -20,6 +20,8 @@ export const MovingMarker = ({markers}:MovingProps) => {
 
     const [currentMarkerIndex, setCurrentMarkerIndex] = useState(0);
     const [position, setPosition] = useState<google.maps.LatLngLiteral>(markers[0].position);
+    const [rotationAngle, setRotationAngle] = useState(0);
+    const [flip, setFlip] = useState(false);
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -44,6 +46,19 @@ export const MovingMarker = ({markers}:MovingProps) => {
               // Move to the next marker once progress is equal to or greater than 1
               setCurrentMarkerIndex(nextMarkerIndex);
             }
+
+            // Calculate rotation angle
+            const angleRad = Math.atan2(nextMarker.position.lng - currentMarker.position.lng, 
+                                        nextMarker.position.lat - currentMarker.position.lat);
+            let angleDeg = ((angleRad * 180) / Math.PI) + 90;
+
+            // Determine whether to flip based on the angle
+            const shouldFlip = angleDeg > 90 || angleDeg < -90;
+            setFlip(shouldFlip);
+
+            // Offset by 90 degrees to make the front of the car point towards the next location
+            const roundedAngle = Math.round(angleDeg);
+            setRotationAngle(roundedAngle);
           }, 200);
 
         return () => clearInterval(interval);
@@ -53,14 +68,18 @@ export const MovingMarker = ({markers}:MovingProps) => {
         <AdvancedMarker
             position={position}
             title={"Route"}>
-            <div>
-                <Image src="/car.png" 
-                    width="50"
-                    height="50"
-                    alt="car-chan"
-                    className="w-auto h-auto"
-                />
-            </div>
+                <div className="relative" 
+                    style={{
+                        transform: `rotate(${rotationAngle}deg)${flip ? ' scaleY(-1)' : ''}`,
+                    }}>
+                    <Image 
+                        src="/car.png" 
+                        width="50"
+                        height="50"
+                        alt="car-chan"
+                        className={`w-auto h-auto`}
+                    />
+                </div>
 
         </AdvancedMarker>
     );
